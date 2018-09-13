@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortableAlgorithms", "Modules\SortableAlgorithms\SortableAlgorithms.csproj", "{7F145347-F2C2-45A8-983A-62434EE34348}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "Modules\UnitTests\UnitTests.csproj", "{A30BEC2E-232F-43FD-BA22-884B9E5CDF9B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F145347-F2C2-45A8-983A-62434EE34348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F145347-F2C2-45A8-983A-62434EE34348}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F145347-F2C2-45A8-983A-62434EE34348}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F145347-F2C2-45A8-983A-62434EE34348}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A30BEC2E-232F-43FD-BA22-884B9E5CDF9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A30BEC2E-232F-43FD-BA22-884B9E5CDF9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A30BEC2E-232F-43FD-BA22-884B9E5CDF9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A30BEC2E-232F-43FD-BA22-884B9E5CDF9B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A78433AB-CC2A-4C33-AEE6-DB2B40872BAA}
+	EndGlobalSection
+EndGlobal
