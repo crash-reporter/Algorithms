@@ -47,6 +47,8 @@
   <ItemGroup>
     <Compile Include="BubbleSort\BubbleSort.cs" />
     <Compile Include="BubbleSort\SimpleBubbleSort.cs" />
+    <Compile Include="BucketSort\StringBucketSort.cs" />
+    <Compile Include="BucketSort\SimpleBucketSort.cs" />
     <Compile Include="InsertionSort\InsertionSort.cs" />
     <Compile Include="InsertionSort\InsertionSortOptimized.cs" />
     <Compile Include="InsertionSort\SimpleInsertionSort.cs" />

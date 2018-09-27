@@ -25,5 +25,15 @@
             new ComparableInt(5), new ComparableInt(6), new ComparableInt(8),
             new ComparableInt(10), new ComparableInt(11), new ComparableInt(12)
         };
+
+        public static string[] Example1StringsInput = new string[]
+        {
+            "Warszawa","Jelenia Góra","Wrocław","Kraków","Opole","Poznań","Gdańsk","Barczewo","Bobowa", "Bukowiec","Kostrzyca","Kowary"
+        };
+
+        public static string[] Example1StringsOutput = new string[]
+        {
+            "Barczewo","Bobowa", "Bukowiec","Gdańsk","Jelenia Góra","Kostrzyca","Kowary","Kraków","Opole","Poznań","Warszawa","Wrocław",
+        };
     }
 }
