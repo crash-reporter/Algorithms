@@ -49,11 +49,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComparableInt.cs" />
+    <Compile Include="PerformanceSortAlgorithms.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="SortData.cs" />
     <Compile Include="TestBucketSort.cs" />
     <Compile Include="TestBubbleSort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestConcurrentSort.cs" />
     <Compile Include="TestInsertionSort.cs" />
     <Compile Include="TestQuickSort.cs" />
   </ItemGroup>
