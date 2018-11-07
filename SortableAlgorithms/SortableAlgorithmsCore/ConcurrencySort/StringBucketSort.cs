@@ -24,7 +24,6 @@ namespace SortableAlgorithms.ConcurrencySort
             var buckets = PrepareBuckets();
             PutToBuckets(buckets, table);
             var countPerTasks = _bucketsCount / _threadCount + 1;
-            var output = new IEnumerable<string>[_bucketsCount];
             var tasks = new List<Task>();
             for (var i = 0; i< _threadCount; ++i)
             {
