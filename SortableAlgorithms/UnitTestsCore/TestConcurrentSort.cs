@@ -1,4 +1,5 @@
 ﻿using System.Threading;
+using System.Threading.Tasks;
 using SortableAlgorithms.ConcurrencySort;
 using Xunit;
 
@@ -7,11 +8,11 @@ namespace UnitTestsCore
     public class TestConcurrentSort
     {
         [Fact]
-        public void ConcurrentStringBucketSort()
+        public async Task ConcurrentStringBucketSort()
         {
             var sort = new StringBucketSort(new SortableAlgorithms.BubbleSort.BubbleSort());
             var test = SortData.Example1StringsInput;
-            sort.Sort(test, CancellationToken.None);
+            await sort.Sort(test, CancellationToken.None);
             for (var index = 0; index < SortData.Example1StringsOutput.Length; index++)
             {
                 Assert.Equal(SortData.Example1StringsOutput[index], test[index]);
