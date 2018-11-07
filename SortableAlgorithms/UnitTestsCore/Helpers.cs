@@ -1,4 +1,4 @@
-﻿namespace UnitTests
+﻿namespace UnitTestsCore
 {
     internal static class Helpers
     {
@@ -8,7 +8,7 @@
             {
                 return false;
             }
-            for (int index = 0; index < tableA.Length; index++)
+            for (var index = 0; index < tableA.Length; index++)
             {
                 if (tableA[index] != tableB[index])
                 {
@@ -24,7 +24,7 @@
             {
                 return false;
             }
-            for (int index = 0; index < tableA.Length; index++)
+            for (var index = 0; index < tableA.Length; index++)
             {
                 if (tableA[index].Value != tableB[index].Value)
                 {

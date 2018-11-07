@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UnitTests
+namespace UnitTestsCore
 {
     public class ComparableInt : IComparable
     {
@@ -13,7 +13,7 @@ namespace UnitTests
 
         public int CompareTo(object obj)
         {
-            ComparableInt other = obj as ComparableInt;
+            var other = obj as ComparableInt;
             return Value.CompareTo(other.Value);
         }
     }

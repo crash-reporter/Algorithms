@@ -1,30 +1,29 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Xunit;
 
-namespace UnitTests
+namespace UnitTestsCore
 {
-    [TestClass]
     public class PerformanceSortAlgorithms
     {
-        [TestMethod]
+        [Fact]
         public void PerformanceTest()
         {
-            int length = 5000000;
-            Random random = new Random();
-            ComparableInt[] test = new ComparableInt[length];
-            for(int i = 0; i < length; ++i)
+            var length = 5000000;
+            var random = new Random();
+            var test = new ComparableInt[length];
+            for(var i = 0; i < length; ++i)
             {
                 test[i] = new ComparableInt(random.Next(-100000, 100000));
             }
-            ComparableInt[] test1 = new ComparableInt[length];
-            ComparableInt[] test2 = new ComparableInt[length];
-            ComparableInt[] test3 = new ComparableInt[length];
+            var test1 = new ComparableInt[length];
+            var test2 = new ComparableInt[length];
+            var test3 = new ComparableInt[length];
             Array.Copy(test, test1, length);
             Array.Copy(test, test2, length);
             Array.Copy(test, test3, length);
@@ -33,7 +32,7 @@ namespace UnitTests
             TimeSpan quickSortAsync;
             TimeSpan main;
 
-            Stopwatch sw = new Stopwatch();
+            var sw = new Stopwatch();
             sw.Start();
             new SortableAlgorithms.QuickSort.QuickSort().Sort(test1);
             sw.Stop();
