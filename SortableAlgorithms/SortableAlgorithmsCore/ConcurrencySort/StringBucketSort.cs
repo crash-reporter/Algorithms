@@ -28,7 +28,10 @@ namespace SortableAlgorithms.ConcurrencySort
             var tasks = new List<Task>();
             for (var i = 0; i < _threadCount; ++i)
             {
-                var bucketsToSort = buckets.Skip(i * countPerTasks).Take(countPerTasks).Where(x => x.Any()).ToArray();
+                var bucketsToSort = buckets
+                                    .Skip(i * countPerTasks)
+                                    .Take(countPerTasks)
+                                    .Where(x => x.Any()).ToArray();
                 var newTask = Task.Run(() => SortBuckets(bucketsToSort, cancellationToken), cancellationToken);
                 tasks.Add(newTask);
             }
