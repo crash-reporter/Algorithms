@@ -2,35 +2,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DataStructures
+namespace DataStructuresCore
 {
     public class ListInt : IEnumerable<int>
     {
         private int[] _values;
 
         public int Count { get; private set; }
-        public int Capacity { get; private set; }
+        private int _capacity;
 
         public ListInt()
         {
-            Capacity = 64;
-            _values = new int[Capacity];
+            _capacity = 64;
+            _values = new int[_capacity];
             Count = 0;
         }
 
-        public ListInt(IEnumerable<int> values)
+        public ListInt(IReadOnlyCollection<int> values)
         {
             if (values == null)
             {
                 throw new ArgumentNullException(nameof(values));
             }
-            Capacity = values.Count() * 2;
-            _values = new int[Capacity];
-            (values as int[]).CopyTo(_values, 0);
-            Count = values.Count();
+            _capacity = values.Count() * 2;
+            _values = new int[_capacity];
+            (values as int[])?.CopyTo(_values, 0);
+            Count = values.Count;
         }
 
         public void Add(int value)
@@ -53,7 +51,7 @@ namespace DataStructures
 
         public bool Contains(int value)
         {
-            for (int i = 0; i < Count; ++i)
+            for (var i = 0; i < Count; ++i)
             {
                 if (_values[i] == value)
                 {
@@ -65,7 +63,7 @@ namespace DataStructures
 
         public int IndexOf(int value)
         {
-            for (int i = 0; i < Count; ++i)
+            for (var i = 0; i < Count; ++i)
             {
                 if (_values[i] == value)
                 {
@@ -77,7 +75,7 @@ namespace DataStructures
 
         public void Remove(int value)
         {
-            int index = IndexOf(value);
+            var index = IndexOf(value);
             if (index >= 0)
             {
                 RemoveAt(index);
@@ -102,7 +100,7 @@ namespace DataStructures
         {
             get
             {
-                if (index < 0 || index >= Capacity)
+                if (index < 0 || index >= _capacity)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
@@ -110,7 +108,7 @@ namespace DataStructures
             }
             set
             {
-                if (index < 0 || index >= Capacity)
+                if (index < 0 || index >= _capacity)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
@@ -130,13 +128,14 @@ namespace DataStructures
 
         private void EnsureSize(int size)
         {
-            if (Capacity < size)
+            if (_capacity >= size)
             {
-                Capacity *= 2;
-                int[] old = _values;
-                _values = new int[Capacity];
-                old.CopyTo(_values, 0);
+                return;
             }
+            _capacity *= 2;
+            var old = _values;
+            _values = new int[_capacity];
+            old.CopyTo(_values, 0);
         }
     }
 }
