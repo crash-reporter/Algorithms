@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using SortableAlgorithms.ConcurrencySort;
 using Xunit;
 
 namespace UnitTestsCore
@@ -41,7 +42,7 @@ namespace UnitTestsCore
 
             sw.Reset();
             sw.Start();
-            new SortableAlgorithms.ConcurrencySort.QuickSort().Sort(test2, CancellationToken.None);
+            QuickSort.Sort(test2, CancellationToken.None);
             sw.Stop();
             quickSortAsync = sw.Elapsed;
             Trace.WriteLine($"Quick Sort Async: {sw.Elapsed}");

@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace SortableAlgorithms.ConcurrencySort
 {
-    public class QuickSort 
+    public static class QuickSort 
     {
 
-        public void Sort(IComparable[] table, CancellationToken cancellationToken)
+        public static async Task Sort(IComparable[] table, CancellationToken cancellationToken)
         {
-            QuickSortIntern(table, 0, table.Length - 1,2, cancellationToken);
+            await QuickSortIntern(table, 0, table.Length - 1,2, cancellationToken);
         }
 
-        private void QuickSortIntern(IComparable[] elements, int left, int right, int splitLeft, CancellationToken cancellationToken)
+        private static async Task QuickSortIntern(IComparable[] elements, int left, int right, int splitLeft, CancellationToken cancellationToken)
         {
             if (left >= right)
             {
@@ -41,14 +41,15 @@ namespace SortableAlgorithms.ConcurrencySort
             while (onLeft <= onRight);
             if (splitLeft > 0)
             {
-                var taskSortRight = Task.Factory.StartNew(() => QuickSortIntern(elements, onLeft, right, splitLeft - 1, cancellationToken), cancellationToken);
-                QuickSortIntern(elements, left, onRight, splitLeft - 1, cancellationToken);
-                Task.WaitAll(new Task[] { taskSortRight }, cancellationToken);
+                await Task.WhenAll(QuickSortIntern(elements, onLeft, right, splitLeft - 1, cancellationToken),
+                                   QuickSortIntern(elements, left, onRight, splitLeft - 1, cancellationToken));
             }
             else
             {
-                QuickSortIntern(elements, left, onRight,0, cancellationToken);
-                QuickSortIntern(elements, onLeft, right,0, cancellationToken);
+                await Task.WhenAll(QuickSortIntern(elements, left, onRight, 0, cancellationToken),
+                                   QuickSortIntern(elements, onLeft, right, 0, cancellationToken));
+
+
             }
         }
     }

@@ -22,11 +22,10 @@ namespace UnitTestsCore
         }
 
         [Fact]
-        public void ConcurrentQuickSort()
+        public async Task ConcurrentQuickSort()
         {
-            var sort = new QuickSort();
             var test1 = SortData.Example1Input;
-            sort.Sort(test1, CancellationToken.None);
+            await QuickSort.Sort(test1, CancellationToken.None);
             Assert.True(Helpers.Equals(SortData.Example1Output, test1));
         }
     }
