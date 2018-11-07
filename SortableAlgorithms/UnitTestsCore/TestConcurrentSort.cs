@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using SortableAlgorithms.ConcurrencySort;
 using Xunit;
@@ -12,10 +13,11 @@ namespace UnitTestsCore
         {
             var sort = new StringBucketSort(new SortableAlgorithms.BubbleSort.BubbleSort());
             var test = SortData.Example1StringsInput;
-            await sort.Sort(test, CancellationToken.None);
+            var result = await sort.Sort(test, CancellationToken.None);
+           
             for (var index = 0; index < SortData.Example1StringsOutput.Length; index++)
             {
-                Assert.Equal(SortData.Example1StringsOutput[index], test[index]);
+                Assert.Equal(SortData.Example1StringsOutput[index], result[index]);
             }
         }
 

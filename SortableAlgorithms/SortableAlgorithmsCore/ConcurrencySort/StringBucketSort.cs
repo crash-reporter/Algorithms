@@ -19,28 +19,21 @@ namespace SortableAlgorithms.ConcurrencySort
             _sortAlgorithm = sortAlgorithm;
         }
 
-        public async Task Sort(string[] table, CancellationToken cancellationToken)
+        public async Task<string[]> Sort(string[] table,
+            CancellationToken cancellationToken)
         {
             var buckets = PrepareBuckets();
             PutToBuckets(buckets, table);
             var countPerTasks = _bucketsCount / _threadCount + 1;
             var tasks = new List<Task>();
-            for (var i = 0; i< _threadCount; ++i)
+            for (var i = 0; i < _threadCount; ++i)
             {
                 var bucketsToSort = buckets.Skip(i * countPerTasks).Take(countPerTasks).Where(x => x.Any()).ToArray();
                 var newTask = Task.Run(() => SortBuckets(bucketsToSort, cancellationToken), cancellationToken);
                 tasks.Add(newTask);
             }
             await Task.WhenAll(tasks.ToArray());
-            var sorted = new List<string>();
-            foreach(var values in buckets)
-            {
-                sorted.AddRange(values);
-            }
-            for (var index = 0; index < table.Length; ++index)
-            {
-                table[index] = sorted[index];
-            }
+            return buckets.SelectMany(b => b).ToArray();
         }
 
         private List<string>[] PrepareBuckets()
