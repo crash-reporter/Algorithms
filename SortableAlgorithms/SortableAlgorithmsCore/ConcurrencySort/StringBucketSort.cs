@@ -60,13 +60,10 @@ namespace SortableAlgorithms.ConcurrencySort
 
         private void SortBuckets(IEnumerable<List<string>> buckets, CancellationToken cancellationToken)
         {
-            foreach (var bucket in buckets)
+            foreach (var bucket in buckets.Where(b => b.Any()))
             {
                 cancellationToken.ThrowIfCancellationRequested();
-                if (bucket.Any() == false)
-                {
-                    continue;
-                }
+           
                 var toSort = bucket.ToArray();
                 _sortAlgorithm.Sort(toSort);
                 bucket.Clear();
