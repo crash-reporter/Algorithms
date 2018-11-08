@@ -1,4 +1,4 @@
-﻿using SortableAlgorithms.QuickSort;
+﻿using SortableAlgorithmsCore.QuickSort;
 using Xunit;
 
 namespace UnitTestsCore

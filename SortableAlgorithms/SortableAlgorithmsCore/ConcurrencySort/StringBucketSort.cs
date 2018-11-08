@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SortableAlgorithms.ConcurrencySort
+namespace SortableAlgorithmsCore.ConcurrencySort
 {
     public class StringBucketSort
     {

@@ -1,4 +1,4 @@
-﻿using SortableAlgorithms.BubbleSort;
+﻿using SortableAlgorithmsCore.BubbleSort;
 using Xunit;
 
 namespace UnitTestsCore

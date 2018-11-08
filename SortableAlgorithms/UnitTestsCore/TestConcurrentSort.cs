@@ -1,7 +1,8 @@
 ﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using SortableAlgorithms.ConcurrencySort;
+using SortableAlgorithmsCore.BubbleSort;
+using SortableAlgorithmsCore.ConcurrencySort;
 using Xunit;
 
 namespace UnitTestsCore
@@ -11,7 +12,7 @@ namespace UnitTestsCore
         [Fact]
         public async Task ConcurrentStringBucketSort()
         {
-            var sort = new StringBucketSort(new SortableAlgorithms.BubbleSort.BubbleSort());
+            var sort = new StringBucketSort(new BubbleSort());
             var test = SortData.Example1StringsInput;
             var result = await sort.Sort(test, CancellationToken.None);
            

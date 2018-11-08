@@ -1,5 +1,5 @@
-﻿using SortableAlgorithms.BubbleSort;
-using SortableAlgorithms.BucketSort;
+﻿using SortableAlgorithmsCore.BubbleSort;
+using SortableAlgorithmsCore.BucketSort;
 using Xunit;
 
 namespace UnitTestsCore

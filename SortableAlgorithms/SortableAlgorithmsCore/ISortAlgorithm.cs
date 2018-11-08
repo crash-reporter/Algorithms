@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SortableAlgorithms
+namespace SortableAlgorithmsCore
 {
     public interface ISortAlgorithm
     {

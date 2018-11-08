@@ -1,4 +1,4 @@
-﻿namespace SortableAlgorithms.BubbleSort
+﻿namespace SortableAlgorithmsCore.BubbleSort
 {
     public class SimpleBubbleSort
     {

@@ -1,4 +1,4 @@
-﻿using SortableAlgorithms.InsertionSort;
+﻿using SortableAlgorithmsCore.InsertionSort;
 using Xunit;
 
 namespace UnitTestsCore

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SortableAlgorithms.BubbleSort
+namespace SortableAlgorithmsCore.BubbleSort
 {
     public class BubbleSort : ISortAlgorithm
     {
